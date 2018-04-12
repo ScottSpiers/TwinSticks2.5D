@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+        PlayerPrefsManager.UnlockLevel(0);
+        Debug.Log(PlayerPrefsManager.IsLevelUnlocked(0));
+        Debug.Log(PlayerPrefsManager.IsLevelUnlocked(1));
+        Debug.Log(PlayerPrefsManager.IsLevelUnlocked(2));
         bIsRecording = true;	
 	}
 	

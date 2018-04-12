@@ -57,7 +57,7 @@ public class ReplaySystem : MonoBehaviour {
         }
 
         int frame = (startFrame + frameCount) % BUFFER_SIZE;
-        Debug.Log("Reading frame: " + frame);
+        //Debug.Log("Reading frame: " + frame);
         transform.position = keyframes[frame].pos;
         transform.rotation = keyframes[frame].rot;
 
@@ -77,7 +77,7 @@ public class ReplaySystem : MonoBehaviour {
             startFrame = Time.frameCount;
         }
         int frame = Time.frameCount % BUFFER_SIZE;
-        Debug.Log("Writing frame: " + frame);
+        //Debug.Log("Writing frame: " + frame);
         keyframes[frame] = new MyKeyFrame(Time.time, transform.position, transform.rotation);
     }
 }
