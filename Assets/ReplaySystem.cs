@@ -2,22 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Replay : MonoBehaviour {
+public class ReplaySystem : MonoBehaviour {
 
     private const int BUFFER_SIZE = 100;
     private MyKeyFrame[] keyframes = new MyKeyFrame[BUFFER_SIZE];
     private Rigidbody rigidBody;
+    private GameManager gm;
 
 	// Use this for initialization
 	void Start ()
-    {
+    {gm = GameObject.FindObjectOfType<GameManager>();
         rigidBody = GetComponent<Rigidbody>();	
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        Record();
+        if (gm.bIsRecording)
+            Record();
+        else
+            Playback();
 	}
 
     void Playback()
